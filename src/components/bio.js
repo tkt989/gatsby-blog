@@ -7,20 +7,16 @@
 
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import styles from "./bio.module.scss"
 
-import { rhythm } from "../utils/typography"
+library.add(fab)
 
-const Bio = () => {
+export default () => {
   const data = useStaticQuery(graphql`
-    query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-        childImageSharp {
-          fixed(width: 50, height: 50) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
+    query {
       site {
         siteMetadata {
           author
@@ -34,35 +30,18 @@ const Bio = () => {
 
   const { author, social } = data.site.siteMetadata
   return (
-    <div
-      style={{
-        display: `flex`,
-        marginBottom: rhythm(2.5),
-      }}
-    >
-      <Image
-        fixed={data.avatar.childImageSharp.fixed}
-        alt={author}
-        style={{
-          marginRight: rhythm(1 / 2),
-          marginBottom: 0,
-          minWidth: 50,
-          borderRadius: `100%`,
-        }}
-        imgStyle={{
-          borderRadius: `50%`,
-        }}
-      />
-      <p>
-        Written by <strong>{author}</strong> who lives and works in San
-        Francisco building useful things.
-        {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
+    <div className={`${styles.container} columns is-vcentered`}>
+      <figure className="image is-96x96">
+        <img className="is-rounded" src="https://github.com/tkt989.png" />
+      </figure>
+      <div className={styles.socials}>
+        <a className={styles.social} href="https://github.com/tkt989">
+          <FontAwesomeIcon icon={["fab", "github"]}></FontAwesomeIcon>
         </a>
-      </p>
+        <a className={styles.social} href="https://twitter.com/tkt989_dev">
+          <FontAwesomeIcon icon={["fab", "twitter"]}></FontAwesomeIcon>
+        </a>
+      </div>
     </div>
   )
 }
-
-export default Bio
