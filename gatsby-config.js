@@ -14,7 +14,8 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `Noto Sans JP`
+          `Noto Sans JP:300,400,700`,
+          `Work Sans:800`
         ],
         display: 'swap'
       }

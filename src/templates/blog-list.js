@@ -1,19 +1,40 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Article from "../components/article"
+import styles from "./blog-list.module.scss"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 
-export default ({ data, location }) => {
+library.add(fas)
+
+export default ({ data, location, pathContext }) => {
   const siteTitle = data.site.siteMetadata.title
   const siteDescription = data.site.siteMetadata.description
   const posts = data.allMarkdownRemark.edges
+  const { numPages, currentPage } = pathContext
   return (
-    <Layout location="" title={siteTitle} description={siteDescription}>
+    <Layout location={location} title={siteTitle} description={siteDescription}>
       <SEO title="All posts" />
       {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
-        return <div key={node.fields.slug}>{title}</div>
+        return (
+          <Article post={node} location={location} share={false}></Article>
+        )
       })}
+      <nav className={styles.nav}>
+        {currentPage != 1 &&
+          <Link className={styles.left} to={currentPage == 2 ? `/` : `/page/${currentPage - 1}`}>
+            <FontAwesomeIcon icon="arrow-left"></FontAwesomeIcon>
+          </Link>
+        }
+        {currentPage != numPages &&
+          <Link className={styles.right} to={`/page/${currentPage + 1}`}>
+            <FontAwesomeIcon icon="arrow-right"></FontAwesomeIcon>
+          </Link>
+        }
+      </nav>
     </Layout>
   )
 }
@@ -33,11 +54,15 @@ export const blogListQuery = graphql`
     ) {
       edges {
         node {
+          id
           fields {
             slug
           }
+          html
           frontmatter {
             title
+            date(formatString: "YYYY/MM/DD")
+            description
           }
         }
       }

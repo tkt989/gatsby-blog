@@ -1,12 +1,12 @@
 import React from "react"
 import { Link } from "gatsby"
+import styles from "./header.module.scss"
 
 export default ({ title, description }) => {
   return (
-    <section className="hero">
-      <div className="hero-body">
+    <section className={styles.container}>
         <h1
-          className="title has-text-centered"
+          className={styles.title}
           style={{
             marginTop: 0,
           }}
@@ -22,10 +22,9 @@ export default ({ title, description }) => {
             {title}
           </Link>
         </h1>
-        <h2 className="has-text-centered">
+        <h2 className={styles.description}>
           {description}
         </h2>
-      </div>
     </section>
   )
 }

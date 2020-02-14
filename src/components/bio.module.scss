@@ -1,5 +1,16 @@
+@import "../styles/variables.scss";
+
 .container {
   display: flex;
+  justify-content: center;
+  align-items: center;;
+}
+
+.icon {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 96px;
+  height: 96px;
 }
 
 .socials {
@@ -8,5 +19,11 @@
 }
 
 .social {
-  padding: 4px;
+  transition: all ease 500ms;
+  color: #666666;
+  margin: 8px;
+
+  &:hover {
+    opacity: $hover-opacity;
+  }
 }

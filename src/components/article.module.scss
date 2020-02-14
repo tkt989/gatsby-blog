@@ -1,0 +1,23 @@
+@import "../styles/variables.scss";
+
+.title {
+  color: $color;
+  text-decoration: none;
+}
+
+.footer {
+  margin: 16px;
+}
+
+.socials {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.social {
+  transition: all ease 500ms;
+
+  &:hover {
+    opacity: $hover-opacity;
+  }
+}

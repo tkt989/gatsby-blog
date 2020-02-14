@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Article from "../components/article"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
@@ -16,31 +17,9 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
+        date={post.frontmatter.date}
       />
-      <div className="container">
-      <article className="content">
-        <header>
-          <h1
-            style={{
-              marginBottom: 0,
-            }}
-          >
-            {post.frontmatter.title}
-          </h1>
-          <p
-            style={{
-              display: `block`,
-            }}
-          >
-            {post.frontmatter.date}
-          </p>
-        </header>
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr
-          style={{
-          }}
-        />
-      </article>
+      <Article post={post} location={location} share={true}></Article>
 
       <nav>
         <ul
@@ -68,7 +47,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </li>
         </ul>
       </nav>
-      </div>
     </Layout>
   )
 }
@@ -87,6 +65,9 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       html
+      fields {
+        slug
+      }
       frontmatter {
         title
         date(formatString: "YYYY/MM/DD")

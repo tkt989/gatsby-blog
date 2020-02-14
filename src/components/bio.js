@@ -1,10 +1,3 @@
-/**
- * Bio component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -30,10 +23,8 @@ export default () => {
 
   const { author, social } = data.site.siteMetadata
   return (
-    <div className={`${styles.container} columns is-vcentered`}>
-      <figure className="image is-96x96">
-        <img className="is-rounded" src="https://github.com/tkt989.png" />
-      </figure>
+    <div className={styles.container}>
+      <img className={styles.icon} src="https://github.com/tkt989.png" />
       <div className={styles.socials}>
         <a className={styles.social} href="https://github.com/tkt989">
           <FontAwesomeIcon icon={["fab", "github"]}></FontAwesomeIcon>

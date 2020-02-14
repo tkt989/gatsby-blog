@@ -1,4 +1,37 @@
+@import "../styles/variables.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.infoContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.recents {
+  display: flex;
+  flex-direction: column;
+  @media screen and (max-width: $mobile-width) {
+    align-self: center;
+    justify-self: center;
+    flex-basis: 100%;
+  }
+
+}
+
 .footer {
+  color: $footer-color;
   padding: 16px;
   font-size: 0.8rem;
+}
+
+.gatsby {
+  color: $footer-color;
+  text-decoration: none;
+  font-weight: bold;;
 }
