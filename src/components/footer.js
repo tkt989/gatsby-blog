@@ -4,7 +4,6 @@ import styles from "./footer.module.scss"
 import { Link } from "gatsby"
 
 export default ({ recents }) => {
-  console.log(recents)
   return (
     <section className={styles.container}>
       <div className={styles.infoContainer}>
@@ -15,7 +14,7 @@ export default ({ recents }) => {
 
           {recents.map(edge => {
             return (
-              <Link to={edge.node.fields.slug} className={styles.recentsPost}>
+              <Link key={edge.node.fields.slug} to={edge.node.fields.slug} className={styles.recentsPost}>
                 {edge.node.frontmatter.title}
               </Link>
             )

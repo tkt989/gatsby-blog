@@ -20,7 +20,13 @@ export default ({ data, location, pathContext }) => {
       <SEO title="All posts" />
       {posts.map(({ node }) => {
         return (
-          <Article post={node} location={location} excerpt={true} share={false}></Article>
+          <Article
+            key={node.fields.slug}
+            post={node}
+            location={location}
+            excerpt={true}
+            comment={false}
+            share={false}></Article>
         )
       })}
       <nav className={styles.nav}>

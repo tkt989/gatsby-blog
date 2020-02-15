@@ -12,6 +12,12 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-twitter`,
     {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `tkt989sdiary`
+      }
+    },
+    {
       resolve: "gatsby-plugin-google-analytics",
       options: {
         trackingId: `UA-110212902-1`,

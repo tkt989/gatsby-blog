@@ -11,12 +11,13 @@ import {
 } from "react-share"
 import styles from "./article.module.scss"
 import { Link } from "gatsby";
+import Disqus from "gatsby-plugin-disqus"
 
-export default ({ post, location, excerpt, share }) => {
+export default ({ post, location, excerpt, comment, share }) => {
   const iconSize = 48;
 
   return (
-    <div className="container">
+    <div className={styles.container}>
       <article className="content">
         <header className={styles.header}>
           <Link className={styles.title} to={post.fields.slug}>
@@ -52,6 +53,10 @@ export default ({ post, location, excerpt, share }) => {
               </PocketShareButton>
             </div>
           ) : null}
+
+          {comment &&
+            <Disqus></Disqus>
+          }
         </footer>
 
         <hr className={styles.hr}/>

@@ -21,7 +21,6 @@ export default () => {
     }
   `)
 
-  const { author, social } = data.site.siteMetadata
   return (
     <div className={styles.container}>
       <img className={styles.icon} src="https://github.com/tkt989.png" />

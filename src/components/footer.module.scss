@@ -18,11 +18,16 @@
 .recents {
   display: flex;
   flex-direction: column;
+  margin-top: 16px;
 
   @media screen and (max-width: $mobile-width) {
     align-self: center;
     justify-self: center;
     flex-basis: 100%;
+  }
+
+  h3 {
+    margin-top: 0;
   }
 }
 
