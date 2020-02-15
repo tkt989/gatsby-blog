@@ -1,5 +1,5 @@
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const moment = require("moment")
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -50,7 +50,7 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   // Create blog-list pages
-  const postsPerPage = 2
+  const postsPerPage = 5
   const numPages = Math.ceil(posts.length / postsPerPage)
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
@@ -70,11 +70,15 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+    const date = moment(node.frontmatter.date)
+    const year = date.format("YYYY")
+    const month = date.format("MM")
+    const day = date.format("DD")
+    const file = node.frontmatter.title.replace(/(\s+|#|\?|\/)/g, "-")
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value: `/${year}/${month}/${day}/${file}`,
     })
   }
 }

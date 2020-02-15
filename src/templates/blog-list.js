@@ -27,10 +27,12 @@ export default ({ data, location, pathContext }) => {
         {currentPage != 1 &&
           <Link className={styles.left} to={currentPage == 2 ? `/` : `/page/${currentPage - 1}`}>
             <FontAwesomeIcon icon="arrow-left"></FontAwesomeIcon>
+            Prev Page
           </Link>
         }
         {currentPage != numPages &&
           <Link className={styles.right} to={`/page/${currentPage + 1}`}>
+            Next Page
             <FontAwesomeIcon icon="arrow-right"></FontAwesomeIcon>
           </Link>
         }

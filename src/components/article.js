@@ -18,19 +18,17 @@ export default ({ post, location, share }) => {
   return (
     <div className="container">
       <article className="content">
-        <header>
+        <header className={styles.header}>
           <Link className={styles.title} to={post.fields.slug}>
             <h1>{post.frontmatter.title}</h1>
           </Link>
-          <p
-            style={{
-              display: `block`,
-            }}
-          >
+
+          <p>
             {post.frontmatter.date}
+            <time dateTime={post.frontmatter.date}></time>
           </p>
         </header>
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
+        <section className={styles.content} dangerouslySetInnerHTML={{ __html: post.html }} />
 
         <footer className={styles.footer}>
           {share ? (
@@ -54,7 +52,7 @@ export default ({ post, location, share }) => {
           ) : null}
         </footer>
 
-        <hr />
+        <hr className={styles.hr}/>
       </article>
     </div>
   )

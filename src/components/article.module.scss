@@ -1,8 +1,38 @@
 @import "../styles/variables.scss";
 
+.header {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
 .title {
-  color: $color;
+  color: #66bb6a;
   text-decoration: none;
+}
+
+.content {
+  * {
+    font-size: 0.9rem;
+    letter-spacing: 0.6pt;
+    line-height: 1.6rem;
+  }
+
+  code {
+    margin: 4px;
+  }
+
+  @for $i from 1 through 6 {
+    h#{$i} {
+      padding-left: 4px;
+      border-left: ($i - 1) * 8px solid #66bb6a;
+      border-bottom: 4px solid #66bb6a;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+  }
 }
 
 .footer {
@@ -20,4 +50,10 @@
   &:hover {
     opacity: $hover-opacity;
   }
+}
+
+.hr {
+  border: 1.5px solid $color;
+  border-radius: 2px;
+  opacity: 0.5;
 }

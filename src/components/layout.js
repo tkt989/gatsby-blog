@@ -5,29 +5,8 @@ import Footer from "../components/footer"
 import styles from "./layout.module.scss"
 
 const Layout = ({ location, title, description, children }) => {
-  const recents = useStaticQuery(graphql`
-  query {
-    allMarkdownRemark(
-      sort: {
-        fields: [frontmatter___date],
-        order: DESC
-      },
-      limit: 5
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            date
-          }
-        }
-      }
-    }
-  }
-  `)
+  const data = useStaticQuery(query)
+  const recents = data.recents
 
   return (
     <div
@@ -41,10 +20,37 @@ const Layout = ({ location, title, description, children }) => {
       </header>
       <main className={styles.main}>{children}</main>
       <footer>
-        <Footer recents={recents.allMarkdownRemark.edges}></Footer>
+        <Footer recents={recents.edges}></Footer>
       </footer>
     </div>
   )
 }
+
+const query = graphql`
+         query LayoutQuery {
+           categoris: allMarkdownRemark {
+             group(field: frontmatter___categories) {
+              category: fieldValue
+              totalCount
+            }
+           }
+           recents: allMarkdownRemark(
+             sort: { fields: [frontmatter___date], order: DESC }
+             limit: 5
+           ) {
+             edges {
+               node {
+                 fields {
+                   slug
+                 }
+                 frontmatter {
+                   title
+                   date
+                 }
+               }
+             }
+           }
+         }
+       `
 
 export default Layout
