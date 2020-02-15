@@ -1,6 +1,7 @@
 ---
 title: "ChromebookでLinuxアプリを動かせるようになるという"
-date: 2018-05-17T23:13:10+09:00 categories: ["ひとりごと"]
+date: 2018-05-17T23:13:10+09:00
+categories: ["ひとりごと"]
 thumbnail: "/2018/05/chromebook.png"
 draft: false
 ---
