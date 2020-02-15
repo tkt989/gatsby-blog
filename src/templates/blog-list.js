@@ -20,7 +20,7 @@ export default ({ data, location, pathContext }) => {
       <SEO title="All posts" />
       {posts.map(({ node }) => {
         return (
-          <Article post={node} location={location} share={false}></Article>
+          <Article post={node} location={location} excerpt={true} share={false}></Article>
         )
       })}
       <nav className={styles.nav}>
@@ -61,6 +61,7 @@ export const blogListQuery = graphql`
             slug
           }
           html
+          excerpt(truncate: true)
           frontmatter {
             title
             date(formatString: "YYYY/MM/DD")

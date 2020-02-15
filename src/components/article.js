@@ -12,7 +12,7 @@ import {
 import styles from "./article.module.scss"
 import { Link } from "gatsby";
 
-export default ({ post, location, share }) => {
+export default ({ post, location, excerpt, share }) => {
   const iconSize = 48;
 
   return (
@@ -28,7 +28,9 @@ export default ({ post, location, share }) => {
             <time dateTime={post.frontmatter.date}></time>
           </p>
         </header>
-        <section className={styles.content} dangerouslySetInnerHTML={{ __html: post.html }} />
+        <section
+          className={styles.content}
+          dangerouslySetInnerHTML={{ __html: excerpt ? post.excerpt : post.html }} />
 
         <footer className={styles.footer}>
           {share ? (

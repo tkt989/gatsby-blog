@@ -23,7 +23,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         description={post.frontmatter.description || post.excerpt}
         date={post.frontmatter.date}
       />
-      <Article post={post} location={location} share={true}></Article>
+      <Article post={post} location={location} excerpt={false} share={true}></Article>
 
       <nav className={styles.nav}>
         {previous && (
