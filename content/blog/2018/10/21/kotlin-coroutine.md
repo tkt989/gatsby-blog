@@ -1,6 +1,7 @@
 ---
 title: "Kotlin Coroutineをすこしかじってみた"
-date: 2018-10-21T20:37:09+09:00 categories: ["Kotlin"]
+date: 2018-10-21T20:37:09+09:00
+categories: ["Kotlin"]
 thumbnail: "/2018/10/kotlin-coroutine.png"
 draft: false
 ---
