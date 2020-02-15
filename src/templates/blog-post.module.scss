@@ -1,0 +1,24 @@
+@import "../styles/variables.scss";
+
+.nav {
+  margin-bottom: 16px;
+  display: flex;
+
+  @media screen and (max-width: $mobile-width) {
+    flex-direction: column;
+  }
+}
+
+.prev {
+  display: block;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-right: auto;
+}
+
+.next {
+  display: block;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-left: auto;
+}

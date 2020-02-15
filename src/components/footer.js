@@ -15,7 +15,7 @@ export default ({ recents }) => {
 
           {recents.map(edge => {
             return (
-              <Link to={edge.node.fields.slug}>
+              <Link to={edge.node.fields.slug} className={styles.recentsPost}>
                 {edge.node.frontmatter.title}
               </Link>
             )

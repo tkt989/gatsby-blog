@@ -1,10 +1,14 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Article from "../components/article"
+import styles from "./blog-post.module.scss"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+
+library.add(fas)
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
@@ -21,31 +25,19 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       />
       <Article post={post} location={location} share={true}></Article>
 
-      <nav>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
+      <nav className={styles.nav}>
+        {previous && (
+          <Link to={previous.fields.slug} className={styles.prev}>
+            <FontAwesomeIcon icon={["fas", "arrow-left"]}></FontAwesomeIcon>
+            {previous.frontmatter.title}
+          </Link>
+        )}
+        {next && (
+          <Link to={next.fields.slug} className={styles.next}>
+            {next.frontmatter.title}
+            <FontAwesomeIcon icon={["fas", "arrow-right"]}></FontAwesomeIcon>
+          </Link>
+        )}
       </nav>
     </Layout>
   )
