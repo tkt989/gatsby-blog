@@ -33,6 +33,9 @@ export default () => {
         <a className={styles.social} href="https://twitter.com/tkt989_dev">
           <FontAwesomeIcon icon={["fab", "twitter"]}></FontAwesomeIcon>
         </a>
+        <a className={styles.social} href="https://bookmeter.com/users/841056">
+          <FontAwesomeIcon icon={["fas", "book-open"]}></FontAwesomeIcon>
+        </a>
         <a className={styles.social} href="https://blog.tkt989.info/rss.xml">
           <FontAwesomeIcon icon={["fas", "rss"]}></FontAwesomeIcon>
         </a>
