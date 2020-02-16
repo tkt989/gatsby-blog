@@ -34,7 +34,9 @@
     "gatsby-source-filesystem": "^2.1.46",
     "gatsby-transformer-remark": "^2.6.48",
     "gatsby-transformer-sharp": "^2.3.13",
+    "mkdirp": "^1.0.3",
     "moment": "^2.24.0",
+    "mustache": "^4.0.0",
     "node-sass": "^4.13.1",
     "normalize.css": "^8.0.1",
     "prismjs": "^1.19.0",
@@ -68,6 +70,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "new": "./script/new.js",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   }
 }

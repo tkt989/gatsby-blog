@@ -28,8 +28,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `Noto Sans JP:300,400,700`,
-          `Kosugi Maru:300,400.700`
+          `M PLUS Rounded 1c:400,700`
         ],
         display: 'swap'
       }
