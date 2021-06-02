@@ -13,7 +13,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@fortawesome/react-fontawesome": "^0.1.8",
     "bulma": "^0.8.0",
-    "gatsby": "^2.19.7",
+    "gatsby": "^2.32.13",
     "gatsby-image": "^2.2.39",
     "gatsby-plugin-disqus": "^1.1.4",
     "gatsby-plugin-feed": "^2.3.26",
